@@ -45,7 +45,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         <div className="text-center space-y-6 max-w-3xl mx-auto">
           <div className="inline-flex items-center space-x-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-3.5 py-1 text-xs font-semibold text-cyan-300 shadow-inner">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>3rd-Year B.Tech Compiler Design Project</span>
+            <span>Gamified Educational Compiler Suite</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
