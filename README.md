@@ -1,8 +1,6 @@
 # Compiler Quest ⚔️🎓 (`gamified_compiler`)
 > **An Interactive Gamified Educational Compiler for 3rd-Year B.Tech Compiler Design**
 
-### 🔗 [**▶ LIVE DEMO → https://adityagupta2716-hub.github.io/gamified_compiler/**](https://adityagupta2716-hub.github.io/gamified_compiler/)
-
 Compiler Quest is a modern, dark-themed educational web application that allows students to write code in an educational C-like language and visually inspect every stage of a real, non-mocked compiler pipeline—all while progressing through RPG mechanics such as XP, levels, badges, interactive challenges, and multi-stage boss battles.
 
 ---
