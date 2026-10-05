@@ -7,19 +7,60 @@ Compiler Quest is a modern, dark-themed educational web application that allows 
 
 ## ⚡ Getting Started
 
-First, run the development server:
+### Prerequisites
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (v18.0.0 or higher — tested on Node v24)
+- [npm](https://www.npmjs.com/) (v9.0.0 or higher) or [pnpm](https://pnpm.io/) / [yarn](https://yarnpkg.com/)
+- [Git](https://git-scm.com/)
 
+---
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/adityagupta2716-hub/gamified_compiler.git
+cd gamified_compiler
+```
+
+### Step 2: Install Dependencies
+```bash
+npm install
+```
+
+### Step 3: Start the Frontend Application
 ```bash
 npm run dev
 ```
+Open **[http://localhost:5173](http://localhost:5173)** in your browser to start using Compiler Quest.
 
-Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
+---
 
-> *(Optional)* Start the backend API server:
-> ```bash
-> npm run server
-> ```
-> Open [http://localhost:5000](http://localhost:5000) for the backend API.
+### Step 4 (Optional): Start the Backend API Server
+In a separate terminal window:
+```bash
+npm run server
+```
+The Express REST API will start at **[http://localhost:5000](http://localhost:5000)** (Health check: [http://localhost:5000/api/health](http://localhost:5000/api/health)).
+
+---
+
+### Step 5 (Optional): Run Compiler Engine Tests
+Verify all 6 stages of the compiler pipeline (Lexer, Parser, AST, Semantic Analyzer, TAC IR, and Optimizer):
+```bash
+npm run test:compiler
+```
+
+---
+
+### 📋 Available Scripts
+
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts Vite frontend dev server at `http://localhost:5173` with Hot Module Replacement |
+| `npm run server` | Starts Express backend server at `http://localhost:5000` via `tsx` |
+| `npm run build` | Builds TypeScript and generates optimized production bundle in `dist/` |
+| `npm run preview` | Previews the production build locally |
+| `npm run test:compiler` | Runs the automated 6-phase compiler test suite |
+| `npm run lint` | Runs Oxlint for fast static code analysis |
 
 
 ### 🌍 Get a Live Public URL (Free Hosting)
@@ -92,45 +133,6 @@ SOURCE CODE
 - **B.Tech Curriculum Textbook**: In-depth theoretical modules aligned with university syllabi, architecture flowcharts, and oral viva exam questions with answers.
 - **Diagnostic Explainer**: Clear error cards with Error Type, Line, Column, Expected vs Actual tokens, and actionable "How to Fix" suggestions.
 - **8 Preloaded Examples**: *Hello World*, *Addition*, *Variables*, *Arithmetic Expression*, *Conditional Statement*, *Optimization Example*, *Syntax Error Example*, and *Type Error Example*.
-
----
-
-## 🚀 Quick Start & How to Run
-
-### Prerequisites
-- **Node.js**: v18+ (tested on Node v24)
-- **npm**: v9+
-
-### Installation & Run
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/adityagupta2716-hub/gamified_compiler.git
-   cd gamified_compiler
-   ```
-
-2. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Run Unit Tests (Verify Compiler Engine)**:
-   ```bash
-   npm run test:compiler
-   ```
-
-4. **Start the Frontend Application**:
-   ```bash
-   npm run dev
-   ```
-   Open your browser at **[http://localhost:5173/](http://localhost:5173/)**.
-
-5. **(Optional) Start the Express Backend API**:
-   ```bash
-   npm run server
-   ```
-   Backend runs on **[http://localhost:5000/](http://localhost:5000/)** with local in-memory storage and MongoDB compatibility.
-
 
 ---
 
