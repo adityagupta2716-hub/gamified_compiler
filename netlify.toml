@@ -1,0 +1,15 @@
+# Netlify deployment config for Compiler Quest
+# Push to GitHub → Connect repo on netlify.com → Auto-deploy!
+
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback — redirect all routes to index.html
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
