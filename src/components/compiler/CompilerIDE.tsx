@@ -172,26 +172,26 @@ print(d);`
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)] p-3 md:p-6 space-y-4">
       {/* Top Toolbar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-[#070b18]/80 px-4 py-2.5 backdrop-blur-md">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-2.5 backdrop-blur-md">
         <div className="flex flex-wrap items-center gap-3">
           {/* Run Button */}
           <button
             onClick={() => handleRunCompile()}
             disabled={isCompiling}
-            className="flex items-center space-x-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 px-5 py-2 text-xs font-bold text-white shadow-lg shadow-cyan-500/25 transition-all hover:brightness-110 active:scale-95 disabled:opacity-50"
+            className="flex items-center space-x-2 rounded-xl bg-zinc-100 hover:bg-white active:bg-zinc-200 px-5 py-2 text-xs font-semibold text-zinc-950 shadow-sm border border-zinc-200 transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50"
           >
-            <Play className={`h-4 w-4 fill-white ${isCompiling ? 'animate-spin' : ''}`} />
+            <Play className={`h-3.5 w-3.5 fill-zinc-950 ${isCompiling ? 'animate-spin' : ''}`} />
             <span>{isCompiling ? 'Compiling Pipeline...' : 'Run Pipeline'}</span>
-            <span className="hidden sm:inline text-[10px] text-cyan-200/80 font-mono">(Ctrl+Enter)</span>
+            <span className="hidden sm:inline text-[10px] text-zinc-600 font-mono">(Ctrl+Enter)</span>
           </button>
 
           {/* Example Selector */}
           <div className="flex items-center space-x-2 text-xs">
-            <span className="text-slate-400 text-[11px] hidden sm:inline">Example:</span>
+            <span className="text-zinc-500 text-[11px] hidden sm:inline">Example:</span>
             <select
               value={selectedExample}
               onChange={(e) => handleLoadExample(e.target.value)}
-              className="rounded-xl border border-slate-700 bg-slate-900/90 px-3 py-1.5 text-xs text-slate-200 focus:border-cyan-500 focus:outline-none"
+              className="rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-200 focus:border-zinc-500 focus:outline-none"
             >
               {EXAMPLE_PROGRAMS.map((ex) => (
                 <option key={ex.id} value={ex.id}>
@@ -204,7 +204,7 @@ print(d);`
           {/* Action Buttons */}
           <button
             onClick={handleClear}
-            className="flex items-center space-x-1.5 rounded-xl border border-slate-800 bg-slate-900/60 px-3 py-1.5 text-xs text-slate-400 hover:text-rose-400 hover:border-rose-500/30 transition-colors"
+            className="flex items-center space-x-1.5 rounded-xl border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-400 hover:text-rose-400 hover:border-rose-500/30 transition-colors"
             title="Clear Editor"
           >
             <Trash2 className="h-3.5 w-3.5" />
@@ -213,7 +213,7 @@ print(d);`
 
           <button
             onClick={handleReset}
-            className="flex items-center space-x-1.5 rounded-xl border border-slate-800 bg-slate-900/60 px-3 py-1.5 text-xs text-slate-400 hover:text-white transition-colors"
+            className="flex items-center space-x-1.5 rounded-xl border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-400 hover:text-white transition-colors"
             title="Reset Default Example"
           >
             <RotateCcw className="h-3.5 w-3.5" />
@@ -225,8 +225,8 @@ print(d);`
         <div className="flex items-center space-x-3">
           {compilationResult && (
             <div className="hidden sm:flex items-center space-x-2 text-xs font-mono">
-              <span className="text-slate-400">{compilationResult.executionTimeMs}ms</span>
-              <span className="h-3 w-px bg-slate-700" />
+              <span className="text-zinc-500">{compilationResult.executionTimeMs}ms</span>
+              <span className="h-3 w-px bg-zinc-700" />
               {compilationResult.success ? (
                 <span className="flex items-center space-x-1 text-emerald-400">
                   <CheckCircle2 className="h-3.5 w-3.5" />
@@ -243,9 +243,9 @@ print(d);`
 
           <button
             onClick={() => setShowLanguageRef(true)}
-            className="flex items-center space-x-1.5 rounded-xl border border-cyan-500/30 bg-cyan-950/30 px-3 py-1.5 text-xs font-semibold text-cyan-300 hover:bg-cyan-900/40 transition-colors"
+            className="flex items-center space-x-1.5 rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-xs font-medium text-zinc-300 hover:border-zinc-600 hover:text-white transition-colors"
           >
-            <BookOpen className="h-3.5 w-3.5 text-cyan-400" />
+            <BookOpen className="h-3.5 w-3.5 text-zinc-400" />
             <span>Language Ref</span>
           </button>
         </div>
@@ -254,15 +254,15 @@ print(d);`
       {/* Main Split Screen Area */}
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-4 min-h-0">
         {/* Left Side: Code Editor (5 Cols) */}
-        <div className="lg:col-span-5 flex flex-col rounded-2xl border border-slate-800 bg-[#060814] shadow-2xl overflow-hidden min-h-[320px]">
+        <div className="lg:col-span-5 flex flex-col rounded-2xl border border-zinc-800 bg-black shadow-2xl overflow-hidden min-h-[320px]">
           {/* Editor Header */}
-          <div className="flex items-center justify-between border-b border-slate-800/80 bg-slate-900/80 px-4 py-2.5 text-xs">
-            <div className="flex items-center space-x-2 text-slate-300 font-mono">
-              <Code2 className="h-4 w-4 text-cyan-400" />
+          <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-950 px-4 py-2.5 text-xs">
+            <div className="flex items-center space-x-2 text-zinc-300 font-mono">
+              <Code2 className="h-4 w-4 text-zinc-400" />
               <span>main.cq</span>
-              <span className="text-[10px] text-slate-500">C-like Source</span>
+              <span className="text-[10px] text-zinc-600">C-like Source</span>
             </div>
-            <span className="text-[11px] font-mono text-slate-500">
+            <span className="text-[11px] font-mono text-zinc-600">
               {lineCount} lines | {code.length} chars
             </span>
           </div>
@@ -270,7 +270,7 @@ print(d);`
           {/* Editor Body */}
           <div className="flex-1 relative flex overflow-hidden font-mono text-xs">
             {/* Line Numbers */}
-            <div className="select-none py-3 px-3 text-right text-slate-600 bg-[#050711] border-r border-slate-900/80 leading-relaxed font-mono w-10">
+            <div className="select-none py-3 px-3 text-right text-zinc-700 bg-zinc-950 border-r border-zinc-900 leading-relaxed font-mono w-10">
               {lineNumbers.map((n) => (
                 <div key={n} className="leading-6">
                   {n}
@@ -284,16 +284,16 @@ print(d);`
               onChange={(e) => setCode(e.target.value)}
               onKeyDown={handleKeyDown}
               spellCheck={false}
-              placeholder="// Write your C-like program here...&#10;int a = 10;&#10;print(a);"
-              className="flex-1 resize-none bg-transparent p-3 leading-6 text-slate-200 outline-none placeholder-slate-700 font-mono overflow-auto selection:bg-cyan-500/30 selection:text-white"
+              placeholder={`// Write your C-like program here...\nint a = 10;\nprint(a);`}
+              className="flex-1 resize-none bg-transparent p-3 leading-6 text-zinc-200 outline-none placeholder-zinc-700 font-mono overflow-auto selection:bg-zinc-700 selection:text-white"
             />
           </div>
         </div>
 
         {/* Right Side: Compiler Phase Output (7 Cols) */}
-        <div className="lg:col-span-7 flex flex-col rounded-2xl border border-slate-800 bg-[#070b18] shadow-2xl overflow-hidden min-h-[360px]">
+        <div className="lg:col-span-7 flex flex-col rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl overflow-hidden min-h-[360px]">
           {/* Analysis Tabs */}
-          <div className="flex items-center space-x-1 overflow-x-auto border-b border-slate-800/80 bg-slate-900/80 px-3 py-2 text-xs">
+          <div className="flex items-center space-x-1 overflow-x-auto border-b border-zinc-800 bg-zinc-950 px-3 py-2 text-xs">
             {pipelineStages.map((st) => {
               const Icon = st.icon;
               const isActive = activeTab === st.id;
@@ -304,11 +304,11 @@ print(d);`
                   onClick={() => setActiveTab(st.id)}
                   className={`flex items-center space-x-2 rounded-xl px-3 py-2 font-medium transition-all ${
                     isActive
-                      ? 'bg-gradient-to-r from-cyan-500/20 to-purple-600/20 text-cyan-300 border border-cyan-500/30'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
+                      ? 'bg-zinc-800 text-zinc-100 border border-zinc-700 shadow-sm'
+                      : 'text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900'
                   }`}
                 >
-                  <Icon className={`h-3.5 w-3.5 ${isActive ? 'text-cyan-400' : 'text-slate-500'}`} />
+                  <Icon className={`h-3.5 w-3.5 ${isActive ? 'text-zinc-200' : 'text-zinc-600'}`} />
                   <span className="whitespace-nowrap">{st.label}</span>
                   {st.completed && (
                     <CheckCircle2 className="h-3 w-3 text-emerald-400 ml-1" />
@@ -369,13 +369,13 @@ print(d);`
       </div>
 
       {/* Bottom Pipeline Progression Navigation Bar */}
-      <div className="rounded-2xl border border-slate-800 bg-[#060814]/90 p-3 backdrop-blur-md">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-3 backdrop-blur-md">
         <div className="flex items-center justify-between mb-2 px-1 text-xs">
-          <div className="flex items-center space-x-2 text-slate-300 font-semibold">
-            <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+          <div className="flex items-center space-x-2 text-zinc-300 font-semibold">
+            <Sparkles className="h-3.5 w-3.5 text-zinc-400" />
             <span>Interactive Compiler Pipeline</span>
           </div>
-          <span className="text-[11px] text-slate-500 font-mono">
+          <span className="text-[11px] text-zinc-600 font-mono">
             Click any phase to inspect representation
           </span>
         </div>
@@ -392,14 +392,14 @@ print(d);`
                 onClick={() => setActiveTab(stage.id)}
                 className={`relative flex items-center justify-between rounded-xl p-2.5 text-xs transition-all border ${
                   isActive
-                    ? 'border-cyan-400 bg-cyan-950/40 text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]'
+                    ? 'border-zinc-400 bg-zinc-800 text-zinc-100 shadow-sm'
                     : isCompleted
-                    ? 'border-emerald-500/30 bg-emerald-950/10 text-slate-300 hover:border-emerald-500/50'
-                    : 'border-slate-800 bg-slate-900/40 text-slate-500 hover:border-slate-700'
+                    ? 'border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-zinc-600'
+                    : 'border-zinc-800 bg-zinc-950 text-zinc-600 hover:border-zinc-700'
                 }`}
               >
                 <div className="flex items-center space-x-2 truncate">
-                  <Icon className={`h-4 w-4 ${isActive ? 'text-cyan-400' : isCompleted ? 'text-emerald-400' : 'text-slate-600'}`} />
+                  <Icon className={`h-4 w-4 ${isActive ? 'text-zinc-100' : isCompleted ? 'text-zinc-400' : 'text-zinc-700'}`} />
                   <span className="truncate font-semibold text-[11px]">{stage.label}</span>
                 </div>
                 {isCompleted && (

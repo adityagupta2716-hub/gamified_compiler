@@ -22,7 +22,7 @@ export const BadgeUnlockModal: React.FC = () => {
   if (!activeBadgeUnlocked) return null;
 
   const renderBadgeIcon = (iconName: string) => {
-    const props = { className: 'h-10 w-10 text-cyan-300' };
+    const props = { className: 'h-10 w-10 text-zinc-200' };
     switch (iconName) {
       case 'Search':
         return <Search {...props} />;
@@ -51,25 +51,25 @@ export const BadgeUnlockModal: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
         <motion.div
           initial={{ scale: 0.8, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.8, opacity: 0, y: 20 }}
-          className="relative max-w-sm w-full rounded-2xl border border-cyan-500/40 bg-gradient-to-b from-[#0f172a] to-[#070b18] p-6 text-center shadow-[0_0_50px_-10px_rgba(0,240,255,0.3)]"
+          className="relative max-w-sm w-full rounded-2xl border border-zinc-700 bg-zinc-950 p-6 text-center shadow-2xl"
         >
           <button
             onClick={dismissBadgeUnlock}
-            className="absolute top-4 right-4 text-slate-400 hover:text-white"
+            className="absolute top-4 right-4 text-zinc-500 hover:text-white"
           >
             <X className="h-5 w-5" />
           </button>
 
-          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-tr from-cyan-600 to-blue-500 shadow-lg shadow-cyan-500/30">
+          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-zinc-800 border border-zinc-700 shadow-lg">
             {renderBadgeIcon(activeBadgeUnlocked.icon)}
           </div>
 
-          <div className="mt-4 text-xs font-bold uppercase tracking-wider text-cyan-400">
+          <div className="mt-4 text-xs font-bold uppercase tracking-wider text-zinc-400">
             Achievement Unlocked!
           </div>
 
@@ -77,14 +77,14 @@ export const BadgeUnlockModal: React.FC = () => {
             {activeBadgeUnlocked.name}
           </h3>
 
-          <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+          <p className="mt-2 text-xs text-zinc-400 leading-relaxed">
             {activeBadgeUnlocked.description}
           </p>
 
           <div className="mt-6">
             <button
               onClick={dismissBadgeUnlock}
-              className="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-2.5 text-xs font-bold text-white shadow-lg shadow-cyan-500/25 transition-all hover:brightness-110"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-zinc-100 hover:bg-white active:bg-zinc-200 py-2.5 text-xs font-semibold text-zinc-950 shadow-sm border border-zinc-200 transition-all hover:-translate-y-0.5"
             >
               Collect Badge
             </button>

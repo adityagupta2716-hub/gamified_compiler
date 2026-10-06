@@ -61,9 +61,9 @@ export const ChallengesPage: React.FC = () => {
   const getDifficultyBadge = (diff: string) => {
     switch (diff) {
       case 'Easy':
-        return 'border-emerald-500/30 bg-emerald-950/30 text-emerald-300';
+        return 'border-zinc-600 bg-zinc-800 text-zinc-300';
       case 'Medium':
-        return 'border-amber-500/30 bg-amber-950/30 text-amber-300';
+        return 'border-zinc-600 bg-zinc-800 text-zinc-200';
       default:
         return 'border-rose-500/30 bg-rose-950/30 text-rose-300';
     }
@@ -72,21 +72,21 @@ export const ChallengesPage: React.FC = () => {
   return (
     <div className="mx-auto max-w-6xl p-4 sm:p-6 lg:p-8 space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-zinc-800 pb-4">
         <div>
-          <div className="flex items-center space-x-2 text-purple-400 text-xs font-bold uppercase tracking-wider">
+          <div className="flex items-center space-x-2 text-zinc-400 text-xs font-bold uppercase tracking-wider">
             <Trophy className="h-4 w-4" />
             <span>Interactive Assessment Arena</span>
           </div>
           <h1 className="text-2xl font-extrabold text-white mt-1">Compiler Challenges</h1>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-zinc-500">
             Reinforce key compiler concepts across all 6 phases and earn bonus XP
           </p>
         </div>
 
         {/* Solved Progress Counter */}
-        <div className="flex items-center space-x-2 rounded-2xl border border-purple-500/30 bg-purple-950/20 px-4 py-2 text-xs font-semibold text-purple-300">
-          <Sparkles className="h-4 w-4 text-amber-400" />
+        <div className="flex items-center space-x-2 rounded-2xl border border-zinc-700 bg-zinc-900 px-4 py-2 text-xs font-semibold text-zinc-300">
+          <Sparkles className="h-4 w-4 text-zinc-400" />
           <span>
             {state.completedChallenges.length} / {CHALLENGES.length} Completed
           </span>
@@ -95,15 +95,15 @@ export const ChallengesPage: React.FC = () => {
 
       {/* Category Filter Pills */}
       <div className="flex items-center space-x-2 overflow-x-auto pb-2 text-xs">
-        <Filter className="h-4 w-4 text-slate-500 mr-1 flex-shrink-0" />
+        <Filter className="h-4 w-4 text-zinc-600 mr-1 flex-shrink-0" />
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
             className={`whitespace-nowrap rounded-xl px-3 py-1.5 font-medium transition-all ${
               activeCategory === cat
-                ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold shadow-md shadow-cyan-500/20'
-                : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+                ? 'bg-zinc-100 text-zinc-950 font-semibold shadow-sm border border-zinc-200'
+                : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800 hover:border-zinc-700'
             }`}
           >
             {cat}
@@ -113,7 +113,7 @@ export const ChallengesPage: React.FC = () => {
 
       {/* Main Grid: Challenge List (Left) + Detail & Answer (Right) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left List: 4 cols */}
+        {/* Left List: 5 cols */}
         <div className="lg:col-span-5 space-y-2.5 max-h-[680px] overflow-y-auto pr-1">
           {filteredChallenges.map((ch) => {
             const isSelected = selectedChallenge.id === ch.id;
@@ -125,15 +125,15 @@ export const ChallengesPage: React.FC = () => {
                 onClick={() => handleSelectChallenge(ch)}
                 className={`cursor-pointer rounded-2xl border p-4 transition-all ${
                   isSelected
-                    ? 'border-cyan-400 bg-cyan-950/30 shadow-[0_0_15px_-3px_rgba(0,240,255,0.2)]'
-                    : 'border-slate-800 bg-[#070a18] hover:border-slate-700 hover:bg-slate-900/50'
+                    ? 'border-zinc-500 bg-zinc-900 shadow-sm'
+                    : 'border-zinc-800 bg-zinc-950 hover:border-zinc-700 hover:bg-zinc-900'
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="space-y-1">
                     <div className="flex items-center space-x-2 text-[10px] font-mono">
-                      <span className="text-cyan-400 font-bold">{ch.category}</span>
-                      <span className="text-slate-600">•</span>
+                      <span className="text-zinc-300 font-bold">{ch.category}</span>
+                      <span className="text-zinc-700">•</span>
                       <span className={`rounded px-1.5 py-0.2 border ${getDifficultyBadge(ch.difficulty)}`}>
                         {ch.difficulty}
                       </span>
@@ -142,11 +142,11 @@ export const ChallengesPage: React.FC = () => {
                   </div>
 
                   <div className="flex items-center space-x-1.5 flex-shrink-0">
-                    <span className="text-[11px] font-bold text-amber-400">+{ch.xpReward} XP</span>
+                    <span className="text-[11px] font-bold text-zinc-400">+{ch.xpReward} XP</span>
                     {completed ? (
                       <CheckCircle2 className="h-4 w-4 text-emerald-400" />
                     ) : (
-                      <div className="h-2 w-2 rounded-full bg-slate-700" />
+                      <div className="h-2 w-2 rounded-full bg-zinc-700" />
                     )}
                   </div>
                 </div>
@@ -156,13 +156,13 @@ export const ChallengesPage: React.FC = () => {
         </div>
 
         {/* Right Detail Pane: 7 cols */}
-        <div className="lg:col-span-7 flex flex-col rounded-3xl border border-slate-800 bg-[#080c1a] p-6 shadow-2xl space-y-5">
+        <div className="lg:col-span-7 flex flex-col rounded-3xl border border-zinc-800 bg-zinc-950 p-6 shadow-2xl space-y-5">
           {/* Card Header */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-800 pb-4">
             <div className="space-y-1">
               <div className="flex items-center space-x-2 text-xs font-mono">
-                <span className="text-cyan-400 font-bold">{selectedChallenge.category}</span>
-                <span className="text-slate-600">•</span>
+                <span className="text-zinc-300 font-bold">{selectedChallenge.category}</span>
+                <span className="text-zinc-700">•</span>
                 <span className={`rounded px-2 py-0.5 border text-[10px] ${getDifficultyBadge(selectedChallenge.difficulty)}`}>
                   {selectedChallenge.difficulty}
                 </span>
@@ -171,7 +171,7 @@ export const ChallengesPage: React.FC = () => {
             </div>
 
             <div className="flex items-center space-x-2">
-              <span className="rounded-xl border border-amber-500/30 bg-amber-950/20 px-3 py-1 text-xs font-bold text-amber-400">
+              <span className="rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-1 text-xs font-bold text-zinc-300">
                 +{selectedChallenge.xpReward} XP
               </span>
               {isCompleted && (
@@ -184,29 +184,29 @@ export const ChallengesPage: React.FC = () => {
           </div>
 
           {/* Question Prompt */}
-          <div className="text-sm font-medium text-slate-200 leading-relaxed">
+          <div className="text-sm font-medium text-zinc-200 leading-relaxed">
             {selectedChallenge.question}
           </div>
 
           {/* Code Snippet (if provided) */}
           {selectedChallenge.codeSnippet && (
-            <div className="rounded-xl border border-slate-800 bg-[#050711] p-4 font-mono text-xs text-cyan-300 overflow-x-auto shadow-inner">
+            <div className="rounded-xl border border-zinc-800 bg-black p-4 font-mono text-xs text-zinc-300 overflow-x-auto shadow-inner">
               <pre>{selectedChallenge.codeSnippet}</pre>
             </div>
           )}
 
           {/* Options */}
           <div className="space-y-2 pt-2">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-500">
               Select Your Answer:
             </div>
             {selectedChallenge.options.map((opt, idx) => {
               const isSelected = selectedOption === idx;
               const isCorrectAnswer = idx === selectedChallenge.correctAnswerIndex;
 
-              let style = 'border-slate-800 bg-slate-900/60 text-slate-300 hover:border-slate-700 hover:bg-slate-900';
+              let style = 'border-zinc-800 bg-zinc-900 text-zinc-300 hover:border-zinc-700 hover:bg-zinc-800';
               if (isSelected && !submitted) {
-                style = 'border-cyan-500 bg-cyan-950/40 text-cyan-200 shadow-md shadow-cyan-500/20';
+                style = 'border-zinc-400 bg-zinc-800 text-zinc-100 shadow-md';
               }
               if (submitted) {
                 if (isCorrectAnswer) {
@@ -224,7 +224,7 @@ export const ChallengesPage: React.FC = () => {
                   className={`flex w-full items-center justify-between rounded-xl border p-3.5 text-xs text-left transition-all ${style}`}
                 >
                   <div className="flex items-center space-x-3">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-lg border border-slate-700 bg-slate-800 text-[11px] font-bold">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 text-[11px] font-bold">
                       {String.fromCharCode(65 + idx)}
                     </div>
                     <span className="font-mono">{opt}</span>
@@ -245,9 +245,9 @@ export const ChallengesPage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
             <button
               onClick={() => setShowHint(!showHint)}
-              className="flex items-center space-x-1.5 text-xs text-slate-400 hover:text-cyan-400 transition-colors"
+              className="flex items-center space-x-1.5 text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
             >
-              <Lightbulb className="h-4 w-4 text-amber-400" />
+              <Lightbulb className="h-4 w-4 text-zinc-500" />
               <span>{showHint ? 'Hide Hint' : 'Need a Hint?'}</span>
             </button>
 
@@ -255,7 +255,7 @@ export const ChallengesPage: React.FC = () => {
               <button
                 onClick={handleSubmitAnswer}
                 disabled={selectedOption === null}
-                className="flex items-center space-x-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 px-6 py-2.5 text-xs font-bold text-white shadow-lg shadow-cyan-500/20 hover:brightness-110 disabled:opacity-40 transition-all"
+                className="flex items-center space-x-2 rounded-xl bg-zinc-100 hover:bg-white active:bg-zinc-200 px-6 py-2.5 text-xs font-semibold text-zinc-950 shadow-sm border border-zinc-200 hover:-translate-y-0.5 disabled:opacity-40 transition-all"
               >
                 <span>Check Answer</span>
                 <ArrowRight className="h-4 w-4" />
@@ -267,7 +267,7 @@ export const ChallengesPage: React.FC = () => {
                   const nextIndex = (currentIndex + 1) % CHALLENGES.length;
                   handleSelectChallenge(CHALLENGES[nextIndex]);
                 }}
-                className="flex items-center space-x-2 rounded-xl border border-slate-700 bg-slate-800 px-5 py-2.5 text-xs font-semibold text-slate-200 hover:bg-slate-700 transition-colors"
+                className="flex items-center space-x-2 rounded-xl border border-zinc-700 bg-zinc-800 px-5 py-2.5 text-xs font-semibold text-zinc-200 hover:bg-zinc-700 transition-colors"
               >
                 <span>Next Challenge</span>
                 <ArrowRight className="h-4 w-4" />
@@ -277,9 +277,9 @@ export const ChallengesPage: React.FC = () => {
 
           {/* Hint Card */}
           {showHint && (
-            <div className="rounded-xl border border-amber-500/30 bg-amber-950/20 p-3.5 text-xs text-amber-200">
+            <div className="rounded-xl border border-zinc-700 bg-zinc-900 p-3.5 text-xs text-zinc-300">
               <div className="font-bold flex items-center space-x-1.5 mb-1">
-                <Lightbulb className="h-4 w-4 text-amber-400" />
+                <Lightbulb className="h-4 w-4 text-zinc-400" />
                 <span>Compiler Hint</span>
               </div>
               <p className="text-[11px] leading-relaxed">{selectedChallenge.hint}</p>
@@ -308,7 +308,7 @@ export const ChallengesPage: React.FC = () => {
                   </>
                 )}
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed font-sans">
+              <p className="text-xs text-zinc-300 leading-relaxed font-sans">
                 {selectedChallenge.explanation}
               </p>
             </div>

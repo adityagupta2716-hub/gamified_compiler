@@ -153,10 +153,10 @@ export const ASTVisualizer: React.FC<ASTVisualizerProps> = ({ ast }) => {
         <div className="flex items-center space-x-2">
           <button
             onClick={() => setViewMode('visual')}
-            className={`flex items-center space-x-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
+            className={`flex items-center space-x-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
               viewMode === 'visual'
-                ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white'
-                : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+                ? 'bg-zinc-800 text-zinc-100 shadow-sm border border-zinc-700'
+                : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
             }`}
           >
             <Network className="h-3.5 w-3.5" />
@@ -165,10 +165,10 @@ export const ASTVisualizer: React.FC<ASTVisualizerProps> = ({ ast }) => {
 
           <button
             onClick={() => setViewMode('json')}
-            className={`flex items-center space-x-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
+            className={`flex items-center space-x-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
               viewMode === 'json'
-                ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white'
-                : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+                ? 'bg-zinc-800 text-zinc-100 shadow-sm border border-zinc-700'
+                : 'bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
             }`}
           >
             <Code className="h-3.5 w-3.5" />

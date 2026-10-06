@@ -74,10 +74,10 @@ export const ProfilePage: React.FC = () => {
   return (
     <div className="mx-auto max-w-5xl p-4 sm:p-6 lg:p-8 space-y-8">
       {/* Profile Header Card */}
-      <div className="rounded-3xl border border-slate-800 bg-gradient-to-r from-[#0c1028] via-[#090d20] to-[#120e2e] p-6 sm:p-8 shadow-2xl space-y-6">
+      <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div className="flex items-center space-x-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-tr from-cyan-500 to-purple-600 text-3xl shadow-lg shadow-cyan-500/25">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800 border border-zinc-700 text-3xl shadow-sm">
               🧑‍💻
             </div>
 
@@ -89,11 +89,11 @@ export const ProfilePage: React.FC = () => {
                       type="text"
                       value={nameInput}
                       onChange={(e) => setNameInput(e.target.value)}
-                      className="rounded-lg border border-cyan-500 bg-slate-900 px-3 py-1 text-sm font-bold text-white focus:outline-none"
+                      className="rounded-lg border border-zinc-600 bg-zinc-800 px-3 py-1 text-sm font-bold text-white focus:outline-none focus:border-zinc-400"
                     />
                     <button
                       onClick={handleSaveName}
-                      className="rounded-lg bg-cyan-500 p-1 text-slate-950 hover:bg-cyan-400"
+                      className="rounded-lg bg-zinc-100 p-1 text-zinc-950 hover:bg-white"
                     >
                       <Check className="h-4 w-4" />
                     </button>
@@ -103,7 +103,7 @@ export const ProfilePage: React.FC = () => {
                     <h2 className="text-xl sm:text-2xl font-black text-white">{state.username}</h2>
                     <button
                       onClick={() => setIsEditingName(true)}
-                      className="text-slate-400 hover:text-white"
+                      className="text-zinc-500 hover:text-white"
                       title="Edit Username"
                     >
                       <Edit2 className="h-4 w-4" />
@@ -113,36 +113,36 @@ export const ProfilePage: React.FC = () => {
               </div>
 
               <div className="flex items-center space-x-2 text-xs font-mono">
-                <span className="text-purple-400 font-bold">Level {state.level}: {currentLevelInfo.title}</span>
-                <span className="text-slate-600">•</span>
-                <span className="text-cyan-400">{state.xp} Total XP</span>
+                <span className="text-zinc-400 font-bold">Level {state.level}: {currentLevelInfo.title}</span>
+                <span className="text-zinc-700">•</span>
+                <span className="text-zinc-300">{state.xp} Total XP</span>
               </div>
             </div>
           </div>
 
           {/* Quick Rank Badge */}
-          <div className="flex items-center space-x-3 rounded-2xl border border-purple-500/30 bg-purple-950/20 px-4 py-2.5">
-            <Shield className="h-6 w-6 text-purple-400" />
+          <div className="flex items-center space-x-3 rounded-2xl border border-zinc-700 bg-zinc-900 px-4 py-2.5">
+            <Shield className="h-6 w-6 text-zinc-400" />
             <div className="text-left">
-              <div className="text-[10px] uppercase font-bold text-purple-300">Standing</div>
+              <div className="text-[10px] uppercase font-bold text-zinc-500">Standing</div>
               <div className="text-xs font-bold text-white">B.Tech Compiler Student</div>
             </div>
           </div>
         </div>
 
         {/* Level XP Progress Bar */}
-        <div className="space-y-2 pt-2 border-t border-slate-800">
-          <div className="flex justify-between text-xs font-mono text-slate-300">
+        <div className="space-y-2 pt-2 border-t border-zinc-800">
+          <div className="flex justify-between text-xs font-mono text-zinc-300">
             <span>Progress to Next Rank</span>
             <span>{xpProgressPercent}%</span>
           </div>
-          <div className="h-3 w-full overflow-hidden rounded-full bg-slate-900 shadow-inner">
+          <div className="h-3 w-full overflow-hidden rounded-full bg-zinc-800 shadow-inner">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-purple-500 transition-all duration-500"
+              className="h-full rounded-full bg-zinc-400 transition-all duration-500"
               style={{ width: `${xpProgressPercent}%` }}
             />
           </div>
-          <div className="flex justify-between text-[11px] text-slate-500 font-mono">
+          <div className="flex justify-between text-[11px] text-zinc-600 font-mono">
             <span>Current: {state.xp} XP</span>
             <span>
               {nextLevelInfo ? `Target: ${nextLevelInfo.minXp} XP (${nextLevelInfo.title})` : 'Max Level'}
@@ -152,15 +152,15 @@ export const ProfilePage: React.FC = () => {
       </div>
 
       {/* Badges Collection Grid */}
-      <div className="rounded-3xl border border-slate-800 bg-[#080c1a] p-6 sm:p-8 shadow-2xl space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-800 pb-4">
+      <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-6 sm:p-8 shadow-2xl space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-zinc-800 pb-4">
           <div>
             <h3 className="text-lg font-bold text-white">Badges & Honors Collection</h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-zinc-500">
               Collect all 10 badges by compiling code, inspecting trees, and finishing challenges
             </p>
           </div>
-          <div className="text-xs font-mono text-cyan-400 font-bold">
+          <div className="text-xs font-mono text-zinc-400 font-bold">
             {state.unlockedBadgeIds.length} / {ALL_BADGES.length} Unlocked
           </div>
         </div>
@@ -174,22 +174,22 @@ export const ProfilePage: React.FC = () => {
                 key={badge.id}
                 className={`relative flex flex-col items-center justify-center rounded-2xl border p-4 text-center transition-all ${
                   isUnlocked
-                    ? 'border-cyan-500/40 bg-gradient-to-b from-cyan-950/30 to-slate-900 shadow-lg shadow-cyan-500/10'
-                    : 'border-slate-800/80 bg-slate-950/40 opacity-40 grayscale'
+                    ? 'border-zinc-600 bg-zinc-900 shadow-sm'
+                    : 'border-zinc-800 bg-zinc-950 opacity-40 grayscale'
                 }`}
               >
                 <div
                   className={`flex h-12 w-12 items-center justify-center rounded-xl mb-3 border ${
                     isUnlocked
-                      ? 'bg-cyan-900/40 border-cyan-500/40 text-cyan-300'
-                      : 'bg-slate-900 border-slate-800 text-slate-600'
+                      ? 'bg-zinc-800 border-zinc-600 text-zinc-200'
+                      : 'bg-zinc-900 border-zinc-800 text-zinc-600'
                   }`}
                 >
                   {renderBadgeIcon(badge.icon)}
                 </div>
 
                 <div className="text-xs font-bold text-white mb-1">{badge.name}</div>
-                <div className="text-[10px] text-slate-400 leading-tight line-clamp-2">
+                <div className="text-[10px] text-zinc-500 leading-tight line-clamp-2">
                   {badge.description}
                 </div>
 
@@ -197,8 +197,8 @@ export const ProfilePage: React.FC = () => {
                   <span
                     className={`rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
                       isUnlocked
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
-                        : 'bg-slate-800 text-slate-500'
+                        ? 'bg-zinc-700 text-zinc-200 border border-zinc-600'
+                        : 'bg-zinc-900 text-zinc-600'
                     }`}
                   >
                     {isUnlocked ? 'Unlocked' : 'Locked'}
@@ -214,7 +214,7 @@ export const ProfilePage: React.FC = () => {
       <div className="rounded-3xl border border-rose-900/40 bg-rose-950/10 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h4 className="text-sm font-bold text-rose-400">Reset Local Quest Progress</h4>
-          <p className="text-xs text-slate-400 mt-0.5">
+          <p className="text-xs text-zinc-500 mt-0.5">
             Clear all accumulated XP, streak counters, badges, and challenge states back to Level 1.
           </p>
         </div>
@@ -232,7 +232,7 @@ export const ProfilePage: React.FC = () => {
             </button>
             <button
               onClick={() => setConfirmReset(false)}
-              className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-2 text-xs text-slate-300 hover:bg-slate-700"
+              className="rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2 text-xs text-zinc-300 hover:bg-zinc-700"
             >
               Cancel
             </button>
