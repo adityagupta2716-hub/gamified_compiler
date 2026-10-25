@@ -8,5 +8,8 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: process.env.GITHUB_ACTIONS ? '/gamified_compiler/' : '/',
+  server: {
+    port: 5173,
+    strictPort: false,
+  },
 })
-
